@@ -59,6 +59,7 @@ nav {
   display: flex;
   flex-direction: column;
 
+  min-width: 100%;
   padding: 10px 0;
   text-align: center;
 }
@@ -88,7 +89,8 @@ nav {
 
 .nav-link:hover {
   cursor: pointer;
-  background-color: var(--dark-accent);
+  background-color: var(--accent);
+  border-radius: 6px;
 }
 
 #hamburger {
@@ -127,24 +129,31 @@ nav {
   background-size: cover;
 
   height: 100%;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  filter: blur(2.5px);
+  -webkit-filter: blur(2.5px);
 }
 
-.hero h1 {
+.hero .hero-text {
   color: var(--light);
   text-align: center;
-  font-size: 3.5em;
+
   padding: 20px;
   width: 80%;
 
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
 
   z-index: 1;
   transform: translate(-50%, -50%);
   filter: drop-shadow(2px 6px 8px rgba(41, 18, 18, 0.8));
+}
+
+.hero .hero-text h1 {
+  font-size: 3em;
+}
+.hero .hero-text p {
+  font-size: 1em;
 }
 
 /* 
@@ -157,6 +166,7 @@ nav {
 }
 
 .explore h2 {
+  grid-column: 1 / -1;
   text-align: center;
 }
 
@@ -169,7 +179,9 @@ nav {
   overflow: hidden;
   position: relative;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .card-location {
@@ -224,7 +236,25 @@ footer {
   background-color: var(--dark);
   color: var(--light);
   text-align: center;
+  min-width: 100%;
   padding: 20px;
+}
+
+/* 
+ * Medium Screen
+ */
+@media screen and (min-width: 510px) {
+  .hero .hero-text h1 {
+    font-size: 4em;
+  }
+  .hero .hero-text p {
+    font-size: 1.5em;
+  }
+
+  .explore {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
 }
 
 /* 
@@ -263,21 +293,41 @@ footer {
   /* 
    * Hero Section
    */
-  .hero h1 {
-    font-size: 4.5em;
+  .hero .hero-text h1 {
+    font-size: 5em;
+  }
+  .hero .hero-text p {
+    font-size: 1.5em;
   }
 
   /* 
    * Explore Section
    */
   .explore {
-    padding: 50px;
-    display: grid;
+    padding: 50px 30px;
+    gap: 30px;
+  }
+}
+
+/* 
+ * X-Large Screen
+ */
+@media screen and (min-width: 1000px) {
+  .explore {
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+  }
+}
+
+/* 
+ * XX-Large Screen
+ */
+@media screen and (min-width: 1500px) {
+  body {
+    max-width: 1500px;
+    margin: 0 auto;
   }
 
-  .explore h2 {
-    grid-column: 1 / -1;
+  .explore {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
