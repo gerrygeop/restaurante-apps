@@ -1,7 +1,7 @@
 const exploreEl = document.getElementById('explore-section');
 
 function getCardItem() {
-    fetch(dataApi)
+    fetch('https://gerrygeop.github.io/restaurante-apps/src/DATA.json')
         .then(response => response.json())
         .then(data => {
             console.log(data.restaurants);
