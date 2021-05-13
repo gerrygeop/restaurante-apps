@@ -7,13 +7,15 @@ const iconClose = document.getElementById("icon-close");
 
 hamBtn.addEventListener("click", event => {
     let menuOpen = drawerEl.classList.toggle("open");
-
+    
     if (menuOpen) {
         iconMenu.style.display = "none";
         iconClose.style.display = "inline";
+        hamBtn.setAttribute("aria-label", "Close Hamburger Menu");
     } else {
         iconMenu.style.display = "inline";
         iconClose.style.display = "none";
+        hamBtn.setAttribute("aria-label", "Open Hamburger Menu");
     }
     event.stopPropagation();
 });

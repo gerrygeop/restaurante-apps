@@ -1,18 +1,6 @@
-fetch('DATA.json')
-    .then(response => {
-        if (response.status !== 200) {
-            console.log(`Error : ${response.status}`);
-            return Promise.reject(new Error(response.statusText));
-        } else {
-            return Promise.resolve(response);
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // console.log(data.restaurants);
-        showCard(data.restaurants);
-    })
-    .catch(error => console.log(`Anda yang salah: ${error}`) );
+import data from '../DATA.json';
+
+showCard(data.restaurants);
 
 function showCard(restaurants) {
     const exploreEl = document.getElementById('explore-section');
@@ -27,7 +15,7 @@ function showCard(restaurants) {
                     </svg>
                     <p tabindex="0">${item.city}</p>
                 </div>
-                <img src="${item.pictureId}" alt="">
+                <img src="${item.pictureId}" alt="Gambar Restoran ${item.name}">
                 <div class="card-body">
                     <div class="card-rating">
                         <svg class="star" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
