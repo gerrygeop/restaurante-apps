@@ -233,10 +233,11 @@ nav {
 }
 
 .card-desc p {
-  text-overflow: ellipsis;
-  line-height: 16px;
-  max-height: 35px;
   overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* 
