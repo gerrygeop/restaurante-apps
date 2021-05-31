@@ -1,6 +1,5 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
-// import './card-item.js';
 import App from './views/app';
 
 const app = new App({

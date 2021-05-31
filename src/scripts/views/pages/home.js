@@ -20,7 +20,6 @@ const Home = {
 
   async afterRender() {
     const restaurants = await RestaurantSource.listRestaurants();
-    // console.log(restaurants);
 
     const restaurantsContainer = document.getElementById('explore-section');
     restaurants.forEach((restaurant) => {
