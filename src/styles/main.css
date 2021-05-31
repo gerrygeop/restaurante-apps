@@ -86,7 +86,7 @@ nav {
   z-index: 2;
 }
 
-.nav-link {
+.nav-item {
   padding: 15px 5px;
   min-height: 44px;
   color: var(--light);
@@ -94,12 +94,15 @@ nav {
 
   display: grid;
   place-items: center;
+  border-bottom: 2px solid var(--dark);
+  transition: all 0.2s;
 }
 
-.nav-link:hover {
+.nav-item:hover {
   cursor: pointer;
-  background-color: var(--accent);
-  border-radius: 4px;
+  /* background-color: var(--dark-accent); */
+  border-bottom: 2px solid var(--accent);
+  /* border-radius: 4px; */
 }
 
 #hamburger {
@@ -289,13 +292,13 @@ footer {
     display: flex;
     justify-content: flex-end;
 
-    position: relative;
+    position: static;
     transform: translateY(0);
   }
 
-  .nav-link {
-    padding: 0 14px;
-    margin: 0 5px;
+  .nav-item {
+    padding: 0 4px;
+    margin: 0 15px;
   }
 
   #hamburger {

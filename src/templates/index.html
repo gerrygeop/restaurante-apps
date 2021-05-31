@@ -21,7 +21,7 @@
 
     <nav>
         <h1 class="nav-brand">Restaurante</h1>
-        <button id="hamburger" aria-label="Open Hamburger menu">
+        <button id="hamburgerButton" aria-label="Open Hamburger menu">
             <svg class="icon-menu" id="icon-menu" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
             </svg>
@@ -30,26 +30,14 @@
             </svg>
         </button>
 
-        <div class="nav-list" id="drawer">
-            <a class="nav-link" href="/">Home</a>
-            <a class="nav-link" href="#">Favorite</a>
-            <a class="nav-link" href="https://github.com/gerrygeop" target="_blank" rel="noreferrer noopener">About</a>
+        <div class="nav-list" id="navigationDrawer">
+            <a class="nav-item" href="/">Home</a>
+            <a class="nav-item" href="#">Favorite</a>
+            <a class="nav-item" href="https://github.com/gerrygeop" target="_blank" rel="noreferrer noopener">About</a>
         </div>
     </nav>
 
-    <main id="content">
-        <div class="hero">
-            <div class="hero-image"></div>
-            <div class="hero-text">
-                <h1 tabindex="0">Explore Restaurant</h1>
-                <p tabindex="0">Get a restaurant recommendation near your location</p>
-            </div>
-        </div>
-
-        <article class="explore" id="explore-section">
-            <h2 tabindex="0">Explore Restaurant</h2>
-        </article>
-    </main>
+    <main id="mainContent"></main>
 
     <footer>
         <p tabindex="0">Copyright &copy; 2021 - Restaurante Apps</p>
