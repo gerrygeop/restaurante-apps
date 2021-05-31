@@ -1,4 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -19,7 +20,12 @@ const Home = {
 
   async afterRender() {
     const restaurants = await RestaurantSource.listRestaurants();
-    console.log(restaurants);
+    // console.log(restaurants);
+
+    const restaurantsContainer = document.getElementById('explore-section');
+    restaurants.forEach((restaurant) => {
+      restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
+    });
   },
 };
 
