@@ -3,9 +3,11 @@ import UrlParser from '../routes/url-parse';
 import DrawerInitiator from '../utils/drawer-initiator';
 
 class App {
-  constructor({ button, drawer, content }) {
+  constructor({ button, drawer, iconMenu, iconClose, content }) {
     this._button = button;
     this._drawer = drawer;
+    this._iconMenu = iconMenu;
+    this._iconClose = iconClose;
     this._content = content;
 
     this._initialAppShell();
@@ -15,6 +17,8 @@ class App {
     DrawerInitiator.init({
       button: this._button,
       drawer: this._drawer,
+      iconMenu: this._iconMenu,
+      iconClose: this._iconClose,
       content: this._content,
     });
   }
