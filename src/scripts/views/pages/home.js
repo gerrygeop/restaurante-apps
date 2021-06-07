@@ -20,8 +20,8 @@ const Home = {
 
   async afterRender() {
     const restaurants = await RestaurantSource.listRestaurants();
-
     const restaurantsContainer = document.getElementById('explore-section');
+
     restaurants.forEach((restaurant) => {
       restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
     });

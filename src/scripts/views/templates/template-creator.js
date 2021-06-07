@@ -1,27 +1,54 @@
 import CONFIG from '../../globals/config';
 
+const createCategoriesItem = (category) => `
+  <span tabindex="0">${category.name}</span>
+`;
+
+const createMenuItem = (menu) => `
+  <li tabindex="0">${menu.name}</li>
+`;
+
+const createCustomerReviews = (customer) => `
+  <div class="restaurant__reviews__box">
+    <h5 tabindex="0">${__convertHTML(customer.name)}</h5>
+    <small tabindex="0" class="review">${__convertHTML(customer.review)}</small>
+    <small tabindex="0"><i>${customer.date}</i></small>
+  </div>
+`;
+
+const __convertHTML = (str) => {
+  const entities = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '\"': '&quot;',
+    '\'': '&apos;',
+    '/': '1',
+    '#': '3',
+  };
+
+  if (str.length > 100) str = str.substring(0, 100);
+  return str.split('').map((char) => {
+    return entities[char] || char;
+  }).join('');
+};
+
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="card">
     <div class="card-location">
-      <svg class="pin" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd"
-          d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" 
-          clip-rule="evenodd"></path>
-      </svg>
+      <img src="./icons/icon_place.svg" class="svg" alt="location">
       <p tabindex="0">${restaurant.city}</p>
     </div>
-    <img src="${CONFIG.BASE_IMAGE_URL + `small/` + restaurant.pictureId}" alt="Restoran ${restaurant.name}">
+    <img src="${CONFIG.BASE_IMAGE_URL + `small/` + restaurant.pictureId}" class="card-image" alt="${restaurant.name}">
     <div class="card-body">
-      <div class="card-rating">
-        <svg class="star" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-          <path 
-            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-          </path>
-        </svg>
+      <div class="rating">
+        <img src="./icons/icon_star.svg" class="svg" alt="star">
         <p tabindex="0">${restaurant.rating}</p>
       </div>
       <div class="card-title">
-        <h3 tabindex="0">${restaurant.name}</h3>
+        <h3 tabindex="0">
+          <a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a>
+        </h3>
       </div>
       <div class="card-desc">
         <p>${restaurant.description}</p>
@@ -30,6 +57,54 @@ const createRestaurantItemTemplate = (restaurant) => `
   </div>
 `;
 
+const createRestaurantDetailTemplate = (restaurant) => `
+  <img src="${CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId}" alt="${restaurant.name}">
+  <div class="restaurant__detail">
+    <h2 tabindex="0">${restaurant.name}</h2>
+
+    <div class="rating">
+      <img src="./icons/icon_star.svg" class="svg" alt="rating" name="rating">
+      <p tabindex="0" aria-label="rating">${restaurant.rating}</p>
+    </div>
+
+    <div class="restaurant__address">
+      <img src="./icons/icon_store.svg" class="svg" alt="restaurant">
+      <p tabindex="0">${restaurant.address}, ${restaurant.city}</p>
+    </div>
+
+    <div class="restaurant__category">
+      <small tabindex="0">Categories:</small>
+      <div class="restaurant__list__category" id="categories"></div>
+    </div>
+    <br/>
+    <div class="restaurant__menu">
+      <h3 tabindex="0">Menus</h3>
+      <div class="restaurant__menu__card">
+        <h4 tabindex="0">Foods</h4>
+        <ul id="foods-list"></ul>
+      </div>
+      <div class="restaurant__menu__card">
+        <h4 tabindex="0">Drinks</h4>
+        <ul id="drinks-list"></ul>
+      </div>
+    </div>
+    <br/>
+    <div class="restaurant__description">
+      <h3 tabindex="0">Description</h3>
+      <p tabindex="0">${restaurant.description}</p>
+    </div>
+    <br/>
+    <div class="restaurant__customer__reviews" id="customerReviews">
+      <h3 tabindex="0">Reviews</h3>
+    </div>
+  </div>
+`;
+
+
 export {
   createRestaurantItemTemplate,
+  createRestaurantDetailTemplate,
+  createCategoriesItem,
+  createMenuItem,
+  createCustomerReviews,
 };

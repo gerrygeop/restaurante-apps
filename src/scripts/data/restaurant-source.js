@@ -10,7 +10,8 @@ class RestaurantSource {
   static async detailRestaurant(id) {
     // eslint-disable-next-line new-cap
     const response = await fetch(API_ENDPOINT.DETAIL(id));
-    return response.json();
+    const responJson = await response.json();
+    return responJson.restaurant;
   }
 }
 
