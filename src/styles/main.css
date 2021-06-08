@@ -34,7 +34,7 @@ a {
   text-decoration: none;
 }
 
-.svg {
+svg {
   width: 18px;
   height: 18px;
 }
@@ -123,7 +123,7 @@ nav {
   border-radius: 4px;
 }
 
-.hamburger .svg {
+.hamburger svg {
   width: 24px;
   height: 24px;
 }
@@ -214,11 +214,12 @@ nav {
 .card-location {
   background-color: var(--accent);
   color: #ffffff;
-  padding: 10px 12px;
+  padding: 10px 8px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2px;
 
   position: absolute;
   top: 0;
@@ -383,9 +384,10 @@ nav {
   position: fixed;
   right: 16px;
   bottom: 16px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
 }
 
-.like .svg {
+.like svg {
   width: 24px;
   height: 24px;
 }

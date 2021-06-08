@@ -2,12 +2,12 @@ const DrawerInitiator = {
   init({ button, drawer, iconMenu, iconClose, content }) {
     button.addEventListener('click', (event) => {
       this._toggleDrawer(event, drawer);
-      this._changeIcon({ button, drawer, iconMenu, iconClose });
+      this._renderIconMenu({ drawer, button, iconMenu, iconClose });
     });
 
     content.addEventListener('click', (event) => {
       this._closeDrawer(event, drawer);
-      this._changeIcon({ button, drawer, iconMenu, iconClose });
+      this._renderIconMenu({ drawer, button, iconMenu, iconClose });
     });
   },
 
@@ -21,7 +21,7 @@ const DrawerInitiator = {
     drawer.classList.remove('open');
   },
 
-  _changeIcon({ button, drawer, iconMenu, iconClose }) {
+  _renderIconMenu({ drawer, button, iconMenu, iconClose }) {
     if (drawer.classList.contains('open')) {
       iconMenu.style.display = 'none';
       iconClose.style.display = 'inline';
