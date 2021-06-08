@@ -1,5 +1,6 @@
 import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parse';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 import { createCustomerReviews, createCategoriesItem, createMenuItem, createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
@@ -15,17 +16,28 @@ const Detail = {
     const restaurant = await RestaurantSource.detailRestaurant(url.id);
 
     const restaurantContainer = document.getElementById('restaurant');
-    console.log(restaurant.id);
-
     restaurantContainer.innerHTML += createRestaurantDetailTemplate(restaurant);
+    console.log(restaurant.id); // JANGAN LUPA DIHAPUS
+
+    LikeButtonInitiator.init({
+      likeButtonContainer: document.getElementById('likeButtonContainer'),
+      restaurant: {
+        id: restaurant.id,
+        name: restaurant.name,
+        rating: restaurant.rating,
+        city: restaurant.city,
+        description: restaurant.description,
+        pictureId: restaurant.pictureId,
+      },
+    });
 
     if (!!restaurantContainer) {
-      console.log('DOM is ready.');
-      this.__renderDetailItem(restaurant);
+      console.log('DOM is ready.'); // JANGAN LUPA DIHAPUS
+      this._renderDetailItem(restaurant);
     }
   },
 
-  __renderDetailItem(restaurant) {
+  _renderDetailItem(restaurant) {
     const categoriesContainer = document.getElementById('categories');
     const foodList = document.getElementById('foods-list');
     const drinkList = document.getElementById('drinks-list');

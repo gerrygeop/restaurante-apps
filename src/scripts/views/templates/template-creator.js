@@ -10,9 +10,9 @@ const createMenuItem = (menu) => `
 
 const createCustomerReviews = (customer) => `
   <div class="restaurant__reviews__box">
-    <h5 tabindex="0">${__convertHTML(customer.name)}</h5>
-    <small tabindex="0" class="review">${__convertHTML(customer.review)}</small>
-    <small tabindex="0"><i>${customer.date}</i></small>
+    <h4 tabindex="0">${__convertHTML(customer.name)}</h4>
+    <p tabindex="0">${__convertHTML(customer.review)}</p>
+    <i tabindex="0">${customer.date}</i>
   </div>
 `;
 
@@ -68,7 +68,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
     </div>
 
     <div class="restaurant__address">
-      <img src="./icons/icon_store.svg" class="svg" alt="restaurant">
+      <img src="./icons/icon_store.svg" class="svg" alt="address">
       <p tabindex="0">${restaurant.address}, ${restaurant.city}</p>
     </div>
 
@@ -100,6 +100,18 @@ const createRestaurantDetailTemplate = (restaurant) => `
   </div>
 `;
 
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this restaurant" id="likeButton" class="like">
+    <img src="./icons/icon_favorite_border.svg" class="svg" alt="like">
+  </button>
+`;
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this movie" id="likeButton" class="like">
+    <img src="./icons/icon_favorite.svg" class="svg" alt="like">
+  </button>
+`;
+
 
 export {
   createRestaurantItemTemplate,
@@ -107,4 +119,6 @@ export {
   createCategoriesItem,
   createMenuItem,
   createCustomerReviews,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
 };

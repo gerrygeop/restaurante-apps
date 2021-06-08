@@ -26,17 +26,17 @@ img {
   width: 100%;
 }
 
-.svg {
-  width: 18px;
-  height: 18px;
-}
-
 p {
   font-family: "Poppins", sans-serif;
 }
 
 a {
   text-decoration: none;
+}
+
+.svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* 
@@ -304,7 +304,6 @@ nav {
 
 .restaurant__menu h3 {
   grid-column: 1 / -1;
-  /* text-align: center; */
 }
 
 .restaurant__menu__card {
@@ -325,7 +324,7 @@ nav {
 }
 
 .restaurant__customer__reviews h3 {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
   padding-bottom: 5px;
   border-bottom: 1px solid #eeeeee;
 }
@@ -337,7 +336,12 @@ nav {
   margin-bottom: 10px;
 }
 
-.restaurant__reviews__box .review {
+.restaurant__reviews__box h4 {
+  color: #343434;
+  font-family: var(--poppins);
+}
+
+.restaurant__reviews__box p {
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -346,12 +350,44 @@ nav {
   -webkit-box-orient: vertical;
 }
 
+.restaurant__reviews__box i {
+  color: #999999;
+  font-size: 12px;
+  font-family: var(--poppins);
+}
+
 /*
  * Rating
  */
 .rating {
   display: flex;
   align-items: center;
+}
+
+/* 
+ * Like
+ */
+.like {
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 50%;
+  background-color: #fb3640;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+}
+
+.like .svg {
+  width: 24px;
+  height: 24px;
 }
 
 /* 
