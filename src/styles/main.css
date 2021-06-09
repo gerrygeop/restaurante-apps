@@ -186,13 +186,13 @@ nav {
 /* 
  * Explore Menu
  */
-.explore {
+section {
   padding: 50px 20px;
   display: grid;
   gap: 30px;
 }
 
-.explore h2 {
+section h2 {
   grid-column: 1 / -1;
   text-align: center;
 }

@@ -12,9 +12,9 @@ const Home = {
         </div>
       </div>
 
-      <article class="explore" id="explore-section">
+      <section id="explore-section">
         <h2 tabindex="0">Explore Restaurant</h2>
-      </article>
+      </section>
     `;
   },
 

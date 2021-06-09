@@ -1,14 +1,22 @@
+import FavoriteRestaurantIdb from '../../data/favorite-idb';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
+
 const Favorite = {
   async render() {
     return `
-      <section class="list-restaurant" id="favorite-section">
+      <section id="favorite-section">
         <h2 tabindex="0">Favorite Restaurant</h2>
       </section>
     `;
   },
 
   async afterRender() {
-    // TODO: Get favorite resto from indexDB
+    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+    const restaurantsContainer = document.getElementById('favorite-section');
+
+    restaurants.forEach((restaurant) => {
+      restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
+    });
   },
 };
 
