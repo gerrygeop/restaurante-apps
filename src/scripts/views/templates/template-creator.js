@@ -1,4 +1,5 @@
 import CONFIG from '../../globals/config';
+import convertHTML from '../../utils/convert-html-helper';
 
 const createCategoriesItem = (category) => `
   <span tabindex="0">${category.name}</span>
@@ -10,28 +11,11 @@ const createMenuItem = (menu) => `
 
 const createCustomerReviews = (customer) => `
   <div class="restaurant__reviews__box">
-    <h4 tabindex="0">${__convertHTML(customer.name)}</h4>
-    <p tabindex="0">${__convertHTML(customer.review)}</p>
+    <h4 tabindex="0">${convertHTML(customer.name)}</h4>
+    <p tabindex="0">${convertHTML(customer.review)}</p>
     <i tabindex="0">${customer.date}</i>
   </div>
 `;
-
-const __convertHTML = (str) => {
-  const entities = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '\"': '&quot;',
-    '\'': '&apos;',
-    '/': '1',
-    '#': '3',
-  };
-
-  if (str.length > 100) str = str.substring(0, 100);
-  return str.split('').map((char) => {
-    return entities[char] || char;
-  }).join('');
-};
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="card">
@@ -39,7 +23,7 @@ const createRestaurantItemTemplate = (restaurant) => `
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       <p tabindex="0">${restaurant.city}</p>
     </div>
-    <img src="${CONFIG.BASE_IMAGE_URL + `small/` + restaurant.pictureId}" class="card-image" alt="${restaurant.name}">
+    <img src="${CONFIG.BASE_IMAGE_URL + `medium/` + restaurant.pictureId}" class="card-image" alt="${restaurant.name}" crossorigin="anonymous">
     <div class="card-body">
       <div class="rating">
         <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e17203"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
@@ -58,7 +42,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 `;
 
 const createRestaurantDetailTemplate = (restaurant) => `
-  <img src="${CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId}" alt="${restaurant.name}">
+  <img src="${CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId}" alt="${restaurant.name}" crossorigin="anonymous">
   <div class="restaurant__detail">
     <h2 tabindex="0">${restaurant.name}</h2>
 

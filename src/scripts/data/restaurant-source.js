@@ -13,6 +13,10 @@ class RestaurantSource {
     const responJson = await response.json();
     return responJson.restaurant;
   }
+
+  static async sendingReview(review) {
+    // TODO: Add...fetch to json
+  }
 }
 
 export default RestaurantSource;
