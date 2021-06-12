@@ -1,24 +1,8 @@
 import CONFIG from '../../globals/config';
 import convertHTML from '../../utils/convert-html-helper';
 
-const createCategoriesItem = (category) => `
-  <span tabindex="0">${category.name}</span>
-`;
-
-const createMenuItem = (menu) => `
-  <li tabindex="0">${menu.name}</li>
-`;
-
-const createCustomerReviews = (customer) => `
-  <div class="restaurant__reviews__box">
-    <h4 tabindex="0">${convertHTML(customer.name)}</h4>
-    <p tabindex="0">${convertHTML(customer.review)}</p>
-    <i tabindex="0">${customer.date}</i>
-  </div>
-`;
-
 const createRestaurantItemTemplate = (restaurant) => `
-  <div class="card">
+  <div class="card" id="card-restaurant">
     <div class="card-location">
       <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       <p tabindex="0">${restaurant.city}</p>
@@ -58,18 +42,24 @@ const createRestaurantDetailTemplate = (restaurant) => `
 
     <div class="restaurant__category">
       <small tabindex="0">Categories:</small>
-      <div class="restaurant__list__category" id="categories"></div>
+      <div class="restaurant__list__category" id="categories">
+        ${restaurant.categories.map((category) => `<span tabindex="0">${category.name}</span>`).join('')}
+      </div>
     </div>
     <br/>
     <div class="restaurant__menu">
       <h3 tabindex="0">Menus</h3>
       <div class="restaurant__menu__card">
         <h4 tabindex="0">Foods</h4>
-        <ul id="foods-list"></ul>
+        <ul id="foods-list">
+          ${restaurant.menus.foods.map((food) => `<li tabindex="0">${food.name}</li>`).join('')}
+        </ul>
       </div>
       <div class="restaurant__menu__card">
         <h4 tabindex="0">Drinks</h4>
-        <ul id="drinks-list"></ul>
+        <ul id="drinks-list">
+          ${restaurant.menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('')}
+        </ul>
       </div>
     </div>
     <br/>
@@ -80,6 +70,13 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <br/>
     <div class="restaurant__customer__reviews" id="customerReviews">
       <h3 tabindex="0">Reviews</h3>
+      ${restaurant.customerReviews.map((customer) => `
+        <div class="restaurant__reviews__box">
+          <h4 tabindex="0">${convertHTML(customer.name)}</h4>
+          <p tabindex="0">${convertHTML(customer.review)}</p>
+          <i tabindex="0">${customer.date}</i>
+        </div>
+      `).join('')}
     </div>
   </div>
 `;
@@ -96,13 +93,21 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
+const createSpinnerTemplate = () => `
+  <svg class="spinner" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" color="#e17203">
+    <g>
+      <path d="M10.998 22a.846.846 0 010-1.692 9.308 9.308 0 000-18.616 9.286 9.286 0 00-7.205 3.416.846.846 0 11-1.31-1.072A10.978 10.978 0 0110.998 0c6.075 0 11 4.925 11 11s-4.925 11-11 11z">
+      </path>
+      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11 11" to="360 11 11" dur=".6s" calcMode="linear" repeatCount="indefinite"></animateTransform>
+    </g>
+  </svg>
+`;
+
 
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
-  createCategoriesItem,
-  createMenuItem,
-  createCustomerReviews,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
+  createSpinnerTemplate,
 };
