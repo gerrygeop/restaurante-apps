@@ -1,5 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
-import { createRestaurantItemTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate, createSpinnerTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -14,17 +14,23 @@ const Home = {
 
       <section id="explore-section">
         <h2 tabindex="0">Explore Restaurant</h2>
+        <div class="loading" id="loading"></div>
       </section>
     `;
   },
 
   async afterRender() {
-    const restaurants = await RestaurantSource.listRestaurants();
+    const loading = document.getElementById('loading');
+    loading.innerHTML = createSpinnerTemplate();
+
     const restaurantsContainer = document.getElementById('explore-section');
+    const restaurants = await RestaurantSource.listRestaurants();
 
     restaurants.forEach((restaurant) => {
       restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
     });
+
+    loading.style.display = 'none';
   },
 };
 
