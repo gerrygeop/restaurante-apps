@@ -1,5 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/favorite-idb';
-import { createRestaurantItemTemplate } from '../templates/template-creator';
+import { createSpinnerTemplate, createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Favorite = {
   async render() {

@@ -342,25 +342,47 @@ section h2 {
   list-style: disc inside;
 }
 
-.restaurant__customer__reviews h3 {
+/* restaurant review */
+.restaurant__customer__review h3 {
   margin-bottom: 14px;
   padding-bottom: 5px;
   border-bottom: 1px solid #eeeeee;
 }
 
-.restaurant__reviews__box {
+.restaurant__customer__review form {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.restaurant__customer__review input,
+.restaurant__customer__review textarea,
+.restaurant__customer__review button {
+  padding: 5px;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+}
+
+.restaurant__customer__review button {
+  color: #ffffff;
+  background-color: var(--accent);
+}
+
+.restaurant__review__box {
   max-width: 400px;
   border-bottom: 1px solid var(--light-accent);
   padding-bottom: 10px;
   margin-bottom: 10px;
 }
 
-.restaurant__reviews__box h4 {
+.restaurant__review__box h4 {
   color: #343434;
   font-family: var(--poppins);
 }
 
-.restaurant__reviews__box p {
+.restaurant__review__box p {
   word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -369,7 +391,7 @@ section h2 {
   -webkit-box-orient: vertical;
 }
 
-.restaurant__reviews__box i {
+.restaurant__review__box i {
   color: #999999;
   font-size: 12px;
   font-family: var(--poppins);
@@ -435,6 +457,10 @@ footer {
   .explore {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+  }
+
+  .restaurant__customer__review form button {
+    max-width: 100px;
   }
 }
 

@@ -68,10 +68,15 @@ const createRestaurantDetailTemplate = (restaurant) => `
       <p tabindex="0">${restaurant.description}</p>
     </div>
     <br/>
-    <div class="restaurant__customer__reviews" id="customerReviews">
+    <div class="restaurant__customer__review" id="customerReviews">
       <h3 tabindex="0">Reviews</h3>
+      <form>
+        <input type="text" id="customerName" placeholder="Nama" required>
+        <textarea rows="3" id="customerReview" placeholder="Review" required></textarea>
+        <button type="submit">Send</button>
+      </form>
       ${restaurant.customerReviews.map((customer) => `
-        <div class="restaurant__reviews__box">
+        <div class="restaurant__review__box">
           <h4 tabindex="0">${convertHTML(customer.name)}</h4>
           <p tabindex="0">${convertHTML(customer.review)}</p>
           <i tabindex="0">${customer.date}</i>

@@ -1,4 +1,5 @@
 import API_ENDPOINT from '../globals/api-endpoint';
+import CONFIG from '../globals/config';
 
 class RestaurantSource {
   static async listRestaurants() {
@@ -21,7 +22,7 @@ class RestaurantSource {
         'Content-Type': 'application/json',
         'X-Auth-Token': CONFIG.KEY,
       },
-      body: data,
+      body: JSON.stringify(data),
     });
     const responseJson = await response.json();
     return responseJson;
