@@ -1,4 +1,5 @@
 import RestaurantSource from '../data/restaurant-source';
+import AlertInitiator from './alert-initiator';
 
 const FormReviewInitiator = {
   init({ data }) {
@@ -13,7 +14,7 @@ const FormReviewInitiator = {
     if (name !== '' || review !== '') {
       this._sendReview(this._data);
     } else {
-      alert('Input tidak boleh kosong!');
+      AlertInitiator.showAlert('', 'The input cannot be empty!', 'warning');
     }
   },
 
@@ -21,8 +22,10 @@ const FormReviewInitiator = {
     try {
       const response = await RestaurantSource.postReview(data);
       console.log(response);
+      AlertInitiator.showAlert('Success', 'Thank you for your review', 'success');
     } catch (error) {
-      alert('Anda seperti nya offline');
+      AlertInitiator.showAlert(`Oopss...`, `Something went wrong!`, 'error');
+      console.log(error);
     }
   },
 

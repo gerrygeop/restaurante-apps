@@ -1,4 +1,5 @@
 import RestaurantSource from '../../data/restaurant-source';
+import AlertInitiator from '../../utils/alert-initiator';
 import { createRestaurantItemTemplate, createSpinnerTemplate } from '../templates/template-creator';
 
 const Home = {
@@ -24,13 +25,18 @@ const Home = {
     loading.innerHTML = createSpinnerTemplate();
 
     const restaurantsContainer = document.getElementById('explore-section');
-    const restaurants = await RestaurantSource.listRestaurants();
 
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
-    });
+    try {
+      const restaurants = await RestaurantSource.listRestaurants();
+      restaurants.forEach((restaurant) => {
+        restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
+      });
 
-    loading.style.display = 'none';
+      loading.style.display = 'none';
+    } catch (error) {
+      AlertInitiator.showAlert('Oops...', 'Failed to load data', 'error');
+      console.log(error);
+    }
   },
 };
 

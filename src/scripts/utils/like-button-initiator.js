@@ -1,5 +1,6 @@
 import FavoriteRestaurantIdb from '../data/favorite-idb';
 import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/templates/template-creator';
+import AlertInitiator from './alert-initiator';
 
 const LikeButtonInitiator = {
   async init({ likeButtonContainer, restaurant }) {
@@ -29,8 +30,13 @@ const LikeButtonInitiator = {
 
     const likeButton = document.getElementById('likeButton');
     likeButton.addEventListener('click', async () => {
-      await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
-      this._renderButton();
+      try {
+        await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
+        this._renderButton();
+        AlertInitiator.showAlert('Added to favorites', '', 'success');
+      } catch (error) {
+        AlertInitiator.showAlert('Oopss..', `Can't be added to favorites`, 'error');
+      }
     });
   },
 

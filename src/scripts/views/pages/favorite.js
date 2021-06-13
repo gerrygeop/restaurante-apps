@@ -1,4 +1,5 @@
 import FavoriteRestaurantIdb from '../../data/favorite-idb';
+import AlertInitiator from '../../utils/alert-initiator';
 import { createSpinnerTemplate, createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Favorite = {
@@ -16,13 +17,17 @@ const Favorite = {
     loading.innerHTML = createSpinnerTemplate();
 
     const restaurantsContainer = document.getElementById('favorite-section');
-    const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
 
-    restaurants.forEach((restaurant) => {
-      restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
-    });
+    try {
+      const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+      restaurants.forEach((restaurant) => {
+        restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
+      });
 
-    loading.style.display = 'none';
+      loading.style.display = 'none';
+    } catch (error) {
+      AlertInitiator.showAlert('Oops...', 'Failed to load data', 'error');
+    }
   },
 };
 
