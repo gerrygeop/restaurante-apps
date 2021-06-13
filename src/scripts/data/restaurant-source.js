@@ -15,7 +15,7 @@ class RestaurantSource {
     return responJson.restaurant;
   }
 
-  static async sendingReview(data) {
+  static async postReview(data) {
     const response = await fetch(API_ENDPOINT.REVIEW, {
       method: 'POST',
       headers: {

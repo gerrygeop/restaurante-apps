@@ -18,8 +18,12 @@ const FormReviewInitiator = {
   },
 
   async _sendReview(data) {
-    const response = await RestaurantSource.sendingReview(data);
-    console.log(response);
+    try {
+      const response = await RestaurantSource.postReview(data);
+      console.log(response);
+    } catch (error) {
+      alert('Anda seperti nya offline');
+    }
   },
 
 };
