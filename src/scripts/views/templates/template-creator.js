@@ -10,7 +10,7 @@ const createRestaurantItemTemplate = (restaurant) => `
     <img src="${CONFIG.BASE_IMAGE_URL + `medium/` + restaurant.pictureId}" alt="${restaurant.name}" crossorigin="anonymous" class="card-image">
     <div class="card-body">
       <div class="rating">
-        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e17203"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#f59e0b"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
         <p tabindex="0">${restaurant.rating}</p>
       </div>
       <div class="card-title">
@@ -31,12 +31,12 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <h2 tabindex="0">${restaurant.name}</h2>
 
     <div class="rating">
-      <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#e17203"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#f59e0b"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
       <p tabindex="0" aria-label="rating">${restaurant.rating}</p>
     </div>
 
     <div class="restaurant__address">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#e17203"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#f59e0b"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg>
       <p tabindex="0">${restaurant.address}, ${restaurant.city}</p>
     </div>
 
@@ -46,28 +46,30 @@ const createRestaurantDetailTemplate = (restaurant) => `
         ${restaurant.categories.map((category) => `<span tabindex="0">${category.name}</span>`).join('')}
       </div>
     </div>
-    <br/>
+
     <div class="restaurant__menu">
       <h3 tabindex="0">Menus</h3>
-      <div class="restaurant__menu__card">
-        <h4 tabindex="0">Foods</h4>
-        <ul id="foods-list">
-          ${restaurant.menus.foods.map((food) => `<li tabindex="0">${food.name}</li>`).join('')}
-        </ul>
-      </div>
-      <div class="restaurant__menu__card">
-        <h4 tabindex="0">Drinks</h4>
-        <ul id="drinks-list">
-          ${restaurant.menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('')}
-        </ul>
+      <div class="restaurant__menu__wrapper">
+        <div class="restaurant__menu__card">
+          <h4 tabindex="0">Foods</h4>
+          <ul id="foods-list">
+            ${restaurant.menus.foods.map((food) => `<li tabindex="0">${food.name}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="restaurant__menu__card">
+          <h4 tabindex="0">Drinks</h4>
+          <ul id="drinks-list">
+            ${restaurant.menus.drinks.map((drink) => `<li tabindex="0">${drink.name}</li>`).join('')}
+          </ul>
+        </div>
       </div>
     </div>
-    <br/>
+
     <div class="restaurant__description">
       <h3 tabindex="0">Description</h3>
       <p tabindex="0">${restaurant.description}</p>
     </div>
-    <br/>
+
     <div class="restaurant__customer__review" id="customerReviews">
       <h3 tabindex="0">Reviews</h3>
       <form>
