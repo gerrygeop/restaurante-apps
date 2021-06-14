@@ -16,12 +16,12 @@ class RestaurantDetail extends HTMLElement {
         <h2 tabindex="0">${this._restaurant.name}</h2>
 
         <div class="rating">
-          <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#f59e0b"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
+          <span class="material-icons">star</span>
           <p tabindex="0" aria-label="rating">${this._restaurant.rating}</p>
         </div>
 
         <div class="restaurant__address">
-          <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#f59e0b"><path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/></svg>
+          <span class="material-icons">store</span>
           <p tabindex="0">${this._restaurant.address}, ${this._restaurant.city}</p>
         </div>
 
@@ -59,7 +59,7 @@ class RestaurantDetail extends HTMLElement {
           <h3 tabindex="0">Reviews</h3>
           <form>
             <input type="text" id="customerName" placeholder="Nama" required>
-            <textarea rows="3" id="customerReview" placeholder="Review" required></textarea>
+            <textarea rows="3" id="customerReview" placeholder="Berikan review anda" required></textarea>
             <button type="submit">Send</button>
           </form>
           ${this._restaurant.customerReviews.map((customer) => `

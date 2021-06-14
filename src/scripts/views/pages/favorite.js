@@ -1,5 +1,6 @@
 import FavoriteRestaurantIdb from '../../data/favorite-idb';
 import AlertInitiator from '../../utils/alert-initiator';
+import { createBlankFavoriteTemplate } from '../templates/template-creator';
 
 const Favorite = {
   async render() {
@@ -17,6 +18,9 @@ const Favorite = {
 
     try {
       const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
+      if (restaurants.length === 0) {
+        restaurantsContainer.insertAdjacentHTML('beforeend', createBlankFavoriteTemplate());
+      }
       restaurantsContainer.restaurants = restaurants;
       loadingContainer.style.display = 'none';
     } catch (error) {
