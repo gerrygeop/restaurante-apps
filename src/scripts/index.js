@@ -1,5 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
+import './components/loading-spinner';
 import swRegister from './utils/sw-register';
 import App from './views/app';
 

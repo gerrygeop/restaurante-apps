@@ -4,8 +4,8 @@
     "description": "Find your favorite restaurant",
     "start_url": "/index.html",
     "display": "standalone",
-    "background_color": "#fcf2df",
-    "theme_color": "#e17203",
+    "background_color": "#f3f4f6",
+    "theme_color": "#f3f4f6",
     "icons": [
         {
             "src": "/icons/icon-72x72.png",

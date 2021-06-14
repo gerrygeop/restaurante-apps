@@ -3,24 +3,22 @@ import UrlParser from '../../routes/url-parse';
 import AlertInitiator from '../../utils/alert-initiator';
 import FormReviewInitiator from '../../utils/form-review-initiator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
-import { createSpinnerTemplate, createRestaurantDetailTemplate } from '../templates/template-creator';
+import { createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
   async render() {
     return `
       <div id="restaurant" class="restaurant">
-        <div class="loading" id="loading"></div>
+        <loading-spinner class="loading"></loading-spinner>
       </div>
       <div id="likeButtonContainer"></div>
     `;
   },
 
   async afterRender() {
-    const loading = document.getElementById('loading');
-    loading.innerHTML = createSpinnerTemplate();
-
-    const url = UrlParser.parseAciveUrlWithoutCombiner();
+    const loadingContainer = document.querySelector('loading-spinner');
     const restaurantContainer = document.getElementById('restaurant');
+    const url = UrlParser.parseAciveUrlWithoutCombiner();
 
     try {
       const restaurant = await RestaurantSource.detailRestaurant(url.id);
@@ -38,21 +36,17 @@ const Detail = {
         },
       });
 
-      loading.style.display = 'none';
+      loadingContainer.style.display = 'none';
 
       const formReview = restaurantContainer.querySelector('form');
       formReview.addEventListener('submit', () => {
-        try {
-          FormReviewInitiator.init({
-            data: {
-              id: url.id,
-              name: formReview.querySelector('#customerName').value,
-              review: formReview.querySelector('#customerReview').value,
-            },
-          });
-        } catch (error) {
-          alert(error);
-        }
+        FormReviewInitiator.init({
+          data: {
+            id: url.id,
+            name: formReview.querySelector('#customerName').value,
+            review: formReview.querySelector('#customerReview').value,
+          },
+        });
       });
     } catch (error) {
       AlertInitiator.showAlert(`Oopss...`, `Failed to display data!`, 'error');

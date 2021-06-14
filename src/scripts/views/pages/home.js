@@ -1,6 +1,6 @@
 import RestaurantSource from '../../data/restaurant-source';
 import AlertInitiator from '../../utils/alert-initiator';
-import { createRestaurantItemTemplate, createSpinnerTemplate } from '../templates/template-creator';
+import { createRestaurantItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -15,14 +15,13 @@ const Home = {
 
       <section id="explore-section">
         <h2 tabindex="0">Explore Restaurant</h2>
-        <div class="loading" id="loading"></div>
+        <loading-spinner class="loading"></loading-spinner>
       </section>
     `;
   },
 
   async afterRender() {
-    const loading = document.getElementById('loading');
-    loading.innerHTML = createSpinnerTemplate();
+    const loadingContainer = document.querySelector('loading-spinner');
 
     const restaurantsContainer = document.getElementById('explore-section');
 
@@ -32,7 +31,7 @@ const Home = {
         restaurantsContainer.insertAdjacentHTML('beforeend', createRestaurantItemTemplate(restaurant));
       });
 
-      loading.style.display = 'none';
+      loadingContainer.style.display = 'none';
     } catch (error) {
       AlertInitiator.showAlert('Oops...', 'Failed to load data', 'error');
       console.log(error);
