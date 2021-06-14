@@ -38,17 +38,6 @@ const Detail = {
       });
 
       loadingContainer.style.display = 'none';
-
-      // const formReview = restaurantContainer.querySelector('form');
-      // formReview.addEventListener('submit', () => {
-      //   FormReviewInitiator.init({
-      //     data: {
-      //       id: url.id,
-      //       name: formReview.querySelector('#customerName').value,
-      //       review: formReview.querySelector('#customerReview').value,
-      //     },
-      //   });
-      // });
     } catch (error) {
       AlertInitiator.showAlert(`Oopss...`, `Failed to display data!`, 'error');
       console.log(error);

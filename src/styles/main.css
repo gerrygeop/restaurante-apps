@@ -1,25 +1,18 @@
 :root {
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
-  --gray-200: #e5e7eb;
   --gray-300: #d1d5db;
-  --gray-400: #9ca3af;
   --gray-500: #6b7280;
-  --gray-600: #4b5563;
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
 
-  --yellow-50: #fffbeb;
   --yellow-100: #fef3c7;
   --yellow-200: #fde68a;
-  --yellow-300: #fcd34d;
-  --yellow-400: #fbbf24;
   --yellow-500: #f59e0b;
   --yellow-600: #d97706;
 
   --red-500: #ef4444;
-  --red-600: #dc2626;
 
   --font-primary: "Poppins", sans-serif;
   --font-second: "Lora", serif;
@@ -243,11 +236,11 @@ restaurant-list .empty-favorite {
 }
 
 .empty-favorite p {
-  color: var(--gray-400);
+  color: var(--gray-500);
   font-family: var(--font-primary);
 }
 .empty-favorite .material-icons {
-  color: var(--gray-400);
+  color: var(--gray-500);
   font-size: 65px;
 }
 
@@ -304,7 +297,7 @@ restaurant-list .empty-favorite {
 }
 
 .card-desc p {
-  color: var(--gray-600);
+  color: var(--gray-700);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -392,7 +385,6 @@ restaurant-list .empty-favorite {
   color: var(--yellow-500);
   letter-spacing: 0.5px;
   padding: 2px 8px;
-  /* border-radius: 4px; */
 }
 
 .restaurant__menu__card ul {
@@ -421,7 +413,6 @@ restaurant-list .empty-favorite {
 /* restaurant review */
 .restaurant__customer__review h3 {
   color: var(--gray-800);
-  /* margin-bottom: 14px; */
   padding-bottom: 5px;
   border-bottom: 1px solid var(--gray-300);
 }
