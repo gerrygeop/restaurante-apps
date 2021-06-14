@@ -1,30 +1,6 @@
 import CONFIG from '../../globals/config';
 import convertHTML from '../../utils/convert-html-helper';
 
-const createRestaurantItemTemplate = (restaurant) => `
-  <div class="card" id="card-restaurant">
-    <div class="card-location">
-      <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#ffffff"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-      <p tabindex="0">${restaurant.city}</p>
-    </div>
-    <img src="${CONFIG.BASE_IMAGE_URL + `medium/` + restaurant.pictureId}" alt="${restaurant.name}" crossorigin="anonymous" class="card-image">
-    <div class="card-body">
-      <div class="rating">
-        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#f59e0b"><g><path d="M0,0h24v24H0V0z" fill="none"/><path d="M0,0h24v24H0V0z" fill="none"/></g><g><path d="M12,17.27L18.18,21l-1.64-7.03L22,9.24l-7.19-0.61L12,2L9.19,8.63L2,9.24l5.46,4.73L5.82,21L12,17.27z"/></g></svg>
-        <p tabindex="0">${restaurant.rating}</p>
-      </div>
-      <div class="card-title">
-        <h3 tabindex="0">
-          <a href="${`/#/detail/${restaurant.id}`}">${restaurant.name}</a>
-        </h3>
-      </div>
-      <div class="card-desc">
-        <p>${restaurant.description}</p>
-      </div>
-    </div>
-  </div>
-`;
-
 const createRestaurantDetailTemplate = (restaurant) => `
   <img src="${CONFIG.BASE_IMAGE_URL + 'large/' + restaurant.pictureId}" alt="${restaurant.name}" crossorigin="anonymous">
   <div class="restaurant__detail">
@@ -100,21 +76,9 @@ const createLikedButtonTemplate = () => `
   </button>
 `;
 
-const createSpinnerTemplate = () => `
-  <svg class="spinner" id="spinner" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor" color="#e17203">
-    <g>
-      <path d="M10.998 22a.846.846 0 010-1.692 9.308 9.308 0 000-18.616 9.286 9.286 0 00-7.205 3.416.846.846 0 11-1.31-1.072A10.978 10.978 0 0110.998 0c6.075 0 11 4.925 11 11s-4.925 11-11 11z">
-      </path>
-      <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 11 11" to="360 11 11" dur=".6s" calcMode="linear" repeatCount="indefinite"></animateTransform>
-    </g>
-  </svg>
-`;
-
 
 export {
-  createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createLikeButtonTemplate,
   createLikedButtonTemplate,
-  createSpinnerTemplate,
 };

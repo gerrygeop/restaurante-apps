@@ -9,7 +9,7 @@ const Detail = {
   async render() {
     return `
       <div id="restaurant" class="restaurant">
-        <loading-spinner class="loading"></loading-spinner>
+        <loading-spinner></loading-spinner>
       </div>
       <div id="likeButtonContainer"></div>
     `;

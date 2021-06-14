@@ -60,9 +60,10 @@ svg {
 /*
  * Loading
  */
-.loading {
-  width: 100%;
-  text-align: center;
+loading-spinner {
+  max-width: 100%;
+  min-height: 80vh;
+  margin: 0 auto;
 }
 
 .spinner {
@@ -219,13 +220,13 @@ nav {
 /* 
  * Explore Menu
  */
-section {
+restaurant-list {
   padding: 50px 20px;
   display: grid;
   gap: 30px;
 }
 
-section h2 {
+restaurant-list h2 {
   grid-column: 1 / -1;
   text-align: center;
   color: var(--gray-900);
@@ -570,7 +571,7 @@ footer {
   }
 
   /* List Restaurant */
-  section {
+  restaurant-list {
     padding: 50px 30px;
     gap: 30px;
   }
@@ -580,7 +581,7 @@ footer {
  * X-Large Screen
  */
 @media screen and (min-width: 1000px) {
-  section {
+  restaurant-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -594,7 +595,7 @@ footer {
     margin: 0 auto;
   }
 
-  section {
+  restaurant-list {
     grid-template-columns: repeat(4, 1fr);
   }
 }
