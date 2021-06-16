@@ -14,7 +14,11 @@ const FormReviewInitiator = {
     if (name !== '' || review !== '') {
       this._sendReview(this._data);
     } else {
-      AlertInitiator.showAlert('', 'The input cannot be empty!', 'warning');
+      AlertInitiator.showAlert({
+        title: 'Hey!',
+        message: 'The input cannot be empty!',
+        icon: 'warning',
+      });
     }
   },
 
@@ -22,9 +26,17 @@ const FormReviewInitiator = {
     try {
       const response = await RestaurantSource.postReview(data);
       console.log(response);
-      AlertInitiator.showAlert('Success', 'Thank you for your review', 'success');
+      AlertInitiator.showAlert({
+        title: 'Success',
+        message: 'Thank you for your review',
+        icon: 'success',
+      });
     } catch (error) {
-      AlertInitiator.showAlert(`Oopss...`, `Something went wrong!`, 'error');
+      AlertInitiator.showAlert({
+        title: `Oopss...`,
+        message: `Something went wrong!`,
+        icon: 'error',
+      });
       console.log(error);
     }
   },

@@ -1,7 +1,7 @@
 import Swal from 'sweetalert2';
 
 const AlertInitiator = {
-  showAlert(title, message, icon) {
+  showAlert({ title, message, icon }) {
     Swal.fire({
       icon: icon,
       title: title,

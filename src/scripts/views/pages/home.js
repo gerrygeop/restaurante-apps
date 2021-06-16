@@ -28,7 +28,11 @@ const Home = {
       restaurantsContainer.restaurants = restaurants;
       loadingContainer.style.display = 'none';
     } catch (error) {
-      AlertInitiator.showAlert('Oops...', 'Failed to load data', 'error');
+      AlertInitiator.showAlert({
+        title: 'Oops...',
+        message: 'Failed to load data',
+        icon: 'error',
+      });
       console.log(error);
     }
   },

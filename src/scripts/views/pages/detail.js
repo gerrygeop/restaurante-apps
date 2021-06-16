@@ -2,9 +2,7 @@ import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parse';
 import AlertInitiator from '../../utils/alert-initiator';
 import '../../components/restaurant-detail';
-// import FormReviewInitiator from '../../utils/form-review-initiator';
 import LikeButtonInitiator from '../../utils/like-button-initiator';
-// import { createRestaurantDetailTemplate } from '../templates/template-creator';
 
 const Detail = {
   async render() {
@@ -39,7 +37,11 @@ const Detail = {
 
       loadingContainer.style.display = 'none';
     } catch (error) {
-      AlertInitiator.showAlert(`Oopss...`, `Failed to display data!`, 'error');
+      AlertInitiator.showAlert({
+        title: `Oopss...`,
+        message: `Failed to display data!`,
+        icon: 'error',
+      });
       console.log(error);
     }
   },

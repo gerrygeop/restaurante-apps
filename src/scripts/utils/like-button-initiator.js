@@ -33,9 +33,17 @@ const LikeButtonInitiator = {
       try {
         await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
         this._renderButton();
-        AlertInitiator.showAlert('Added to favorites', '', 'success');
+        AlertInitiator.showAlert({
+          title: 'Added to favorites',
+          message: '',
+          icon: 'success',
+        });
       } catch (error) {
-        AlertInitiator.showAlert('Oopss..', `Can't be added to favorites`, 'error');
+        AlertInitiator.showAlert({
+          title: 'Oopss..',
+          message: `Can't be added to favorites`,
+          icon: 'error',
+        });
       }
     });
   },
