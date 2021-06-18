@@ -45,11 +45,6 @@ a {
   text-decoration: none;
 }
 
-svg {
-  width: 18px;
-  height: 18px;
-}
-
 .material-icons {
   color: var(--yellow-500);
   font-size: 20px;
@@ -229,12 +224,16 @@ restaurant-list {
 }
 
 restaurant-list h2,
+restaurant-list loading-spinner,
 restaurant-list .empty-favorite {
   grid-column: 1 / -1;
   text-align: center;
   color: var(--gray-900);
 }
 
+/*
+ * Empty Favorite
+ */
 .empty-favorite p {
   color: var(--gray-500);
   font-family: var(--font-primary);
@@ -293,6 +292,8 @@ restaurant-list .empty-favorite {
 
 .card-title a {
   color: var(--gray-900);
+  font-size: 20px;
+  padding: 10px 0;
   font-family: var(--font-second);
 }
 
@@ -427,14 +428,16 @@ restaurant-list .empty-favorite {
 }
 
 .restaurant__customer__review input,
-.restaurant__customer__review textarea {
-  padding: 5px 8px;
+.restaurant__customer__review textarea,
+.restaurant__customer__review button {
+  min-height: 44px;
+  padding: 8px 10px;
   border: 1px solid var(--gray-300);
 }
 
 .restaurant__customer__review button {
+  font-size: 15px;
   border: none;
-  padding: 5px 8px;
   color: var(--gray-50);
   background-color: var(--yellow-500);
 }
