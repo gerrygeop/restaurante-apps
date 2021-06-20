@@ -1,5 +1,6 @@
 import routes from '../routes/routes';
 import UrlParser from '../routes/url-parse';
+import AlertInitiator from '../utils/alert-initiator';
 import DrawerInitiator from '../utils/drawer-initiator';
 
 class App {
@@ -26,8 +27,17 @@ class App {
   async renderPage() {
     const url = UrlParser.parseAciveUrlWithCombiner();
     const page = routes[url];
-    this._content.innerHTML = await page.render();
-    await page.afterRender();
+
+    try {
+      this._content.innerHTML = await page.render();
+      await page.afterRender();
+    } catch (error) {
+      AlertInitiator.showAlert({
+        titile: '',
+        message: 'failed to load page',
+        icon: 'error',
+      });
+    }
   }
 }
 

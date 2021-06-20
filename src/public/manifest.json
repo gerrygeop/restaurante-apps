@@ -1,6 +1,6 @@
 {
     "name": "Restaurante Apps",
-    "short_name": "Restaurante Apps",
+    "short_name": "Restaurante",
     "description": "Find your favorite restaurant",
     "start_url": "/index.html",
     "display": "standalone",
