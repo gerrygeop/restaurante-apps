@@ -37,6 +37,7 @@ class App {
         message: 'failed to load page',
         icon: 'error',
       });
+      console.log(error);
     }
   }
 }
