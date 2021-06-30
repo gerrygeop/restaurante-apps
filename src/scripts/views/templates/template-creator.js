@@ -4,7 +4,7 @@ const createLikeButtonTemplate = () => `
   </button>
 `;
 
-const createLikedButtonTemplate = () => `
+const createUnlikeButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <span class="material-icons">favorite</span>
   </button>
@@ -19,6 +19,6 @@ const createBlankFavoriteTemplate = () => `
 
 export {
   createLikeButtonTemplate,
-  createLikedButtonTemplate,
+  createUnlikeButtonTemplate,
   createBlankFavoriteTemplate,
 };
