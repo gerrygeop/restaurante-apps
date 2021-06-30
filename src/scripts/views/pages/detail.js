@@ -2,7 +2,7 @@ import RestaurantSource from '../../data/restaurant-source';
 import UrlParser from '../../routes/url-parse';
 import AlertInitiator from '../../utils/alert-initiator';
 import '../../components/restaurant-detail';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
 
 const Detail = {
   async render() {
@@ -23,7 +23,7 @@ const Detail = {
       const restaurant = await RestaurantSource.detailRestaurant(url.id);
       restaurantContainer.restaurant = restaurant;
 
-      LikeButtonInitiator.init({
+      LikeButtonPresenter.init({
         likeButtonContainer: document.getElementById('likeButtonContainer'),
         restaurant: {
           id: restaurant.id,
