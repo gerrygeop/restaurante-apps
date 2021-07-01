@@ -19,7 +19,7 @@ exports.config = {
   },
   bootstrap: null,
   mocha: {},
-  name: '55-restaurant-apps',
+  name: 'restaurant-apps',
   plugins: {
     pauseOnFail: {},
     retryFailedStep: {
