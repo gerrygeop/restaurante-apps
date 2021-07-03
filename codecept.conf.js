@@ -11,7 +11,7 @@ exports.config = {
     Puppeteer: {
       url: 'http://localhost:8081',
       show: true,
-      windowSize: 'y',
+      windowSize: '1280x720',
     },
   },
   include: {
@@ -21,11 +21,7 @@ exports.config = {
   mocha: {},
   name: 'restaurant-apps',
   plugins: {
-    pauseOnFail: {},
     retryFailedStep: {
-      enabled: true,
-    },
-    tryTo: {
       enabled: true,
     },
     screenshotOnFail: {
