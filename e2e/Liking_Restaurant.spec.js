@@ -5,11 +5,10 @@ Feature('Restaurant Features');
 
 Before(({ I }) => {
   I.amOnPage('/#/favorite');
+  I.see(`You haven't added your favorite restaurant yet`, '.empty-favorite');
 });
 
-Scenario('Liking one restaurant', async ({ I }) => {
-  I.dontSeeElement('restaurant-item');
-
+xScenario('Liking one restaurant', async ({ I }) => {
   I.amOnPage('/');
 
   I.seeElement('.card-title a');
@@ -31,8 +30,6 @@ Scenario('Liking one restaurant', async ({ I }) => {
 });
 
 Scenario('Unliking one restaurant', async ({ I }) => {
-  I.see(`You haven't added your favorite restaurant yet`, '.empty-favorite');
-
   I.amOnPage('/');
 
   I.seeElement('.card-title a');
@@ -45,13 +42,20 @@ Scenario('Unliking one restaurant', async ({ I }) => {
   I.click('#likeButton');
 
   I.amOnPage('/#/favorite');
+
   I.seeElement('.card-title a');
   const favoriteRestaurantName = await I.grabTextFrom('.card-title a');
 
   assert.strictEqual(firstRestaurantName, favoriteRestaurantName);
 
-  I.click(favoriteRestaurantName);
+  I.forceClick(favoriteRestaurantName);
+
   I.seeElement('#likeButton');
+  I.forceClick('#likeButton');
 
   I.amOnPage('/#/favorite');
+
+  I.dontSee(favoriteRestaurantName);
+  I.dontSeeElement('restaurant-item');
+  I.see(`You haven't added your favorite restaurant yet`, '.empty-favorite');
 });
