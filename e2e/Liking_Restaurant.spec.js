@@ -8,7 +8,7 @@ Before(({ I }) => {
   I.see(`You haven't added your favorite restaurant yet`, '.empty-favorite');
 });
 
-xScenario('Liking one restaurant', async ({ I }) => {
+Scenario('Liking one restaurant', async ({ I }) => {
   I.amOnPage('/');
 
   I.seeElement('.card-title a');
