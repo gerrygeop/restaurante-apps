@@ -178,7 +178,7 @@ app-bar {
 
 .hero-image {
   background-color: var(--gray-300);
-  background-image: url("../public/images/hero-image_2.jpg");
+  background-image: url("../public/images/hero-image-small.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -578,6 +578,10 @@ footer {
   }
 
   /* Hero */
+  .hero-image {
+    background-image: url("../public/images/hero-image-large.jpg");
+  }
+
   .hero .hero-text h1 {
     font-size: 5em;
   }
@@ -617,6 +621,10 @@ footer {
   body {
     max-width: 1500px;
     margin: 0 auto;
+  }
+
+  .hero-image {
+    background-image: url("../public/images/hero-image.jpg");
   }
 
   restaurant-list {
