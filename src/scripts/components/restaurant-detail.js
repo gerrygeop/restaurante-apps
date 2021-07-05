@@ -11,7 +11,11 @@ class RestaurantDetail extends HTMLElement {
 
   render() {
     this.innerHTML = `
-      <img src="${CONFIG.BASE_IMAGE_URL + 'large/' + this._restaurant.pictureId}" alt="${this._restaurant.name}" crossorigin="anonymous">
+      <picture>
+        <source media="(min-width: 800px)" srcset="${CONFIG.BASE_IMAGE_URL_LARGE + this._restaurant.pictureId}">
+        <source media="(min-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL_MEDIUM + this._restaurant.pictureId}">
+        <img src="${CONFIG.BASE_IMAGE_URL_SMALL + this._restaurant.pictureId}" alt="${this._restaurant.name}" crossorigin="anonymous">
+      </picture>
       <div class="restaurant__detail">
         <h2 tabindex="0">${this._restaurant.name}</h2>
 

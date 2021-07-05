@@ -33,6 +33,7 @@ body {
 
 img {
   width: 100%;
+  object-fit: cover;
 }
 
 h1,
@@ -279,7 +280,6 @@ restaurant-list .empty-favorite {
 
 .card .card-image {
   height: 200px;
-  object-fit: cover;
 }
 
 .card-body {
@@ -316,7 +316,6 @@ restaurant-list .empty-favorite {
 
 .restaurant img {
   max-height: 450px;
-  object-fit: cover;
 }
 
 .restaurant__detail {
