@@ -8,7 +8,7 @@ Before(({ I }) => {
   I.see(`You haven't added your favorite restaurant yet`, '.empty-favorite');
 });
 
-Scenario.skip('Liking one restaurant', async ({ I }) => {
+Scenario('Liking one restaurant', async ({ I }) => {
   I.amOnPage('/');
 
   I.seeElement('.card-title a');
@@ -29,7 +29,7 @@ Scenario.skip('Liking one restaurant', async ({ I }) => {
   I.see(favoriteRestaurantName);
 });
 
-Scenario.skip('Unliking one restaurant', async ({ I }) => {
+Scenario('Unliking one restaurant', async ({ I }) => {
   I.amOnPage('/');
 
   I.seeElement('.card-title a');
@@ -65,14 +65,15 @@ Scenario('Customer review', async ({ I }) => {
   I.seeElement('.card-title a');
   I.click(locate('.card-title a').first());
 
-  I.scrollTo('form');
+  I.seeElement('form');
 
-  const textReview = 'Bagus';
+  const textReview = 'nice!';
   I.fillField('form input[name=name]', 'Jennie');
   I.fillField('form textarea[name=review]', textReview);
   I.click('#btnSubmit');
 
   const newReview = locate('.restaurant__review__box p').last();
-  // const textNewReview = await I.grabTextFrom(newReview);
+
+  I.scrollTo(newReview);
   I.see(textReview, newReview);
 });
