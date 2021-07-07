@@ -22,7 +22,7 @@ const Favorite = {
         restaurantsContainer.insertAdjacentHTML('beforeend', createBlankFavoriteTemplate());
       }
       restaurantsContainer.restaurants = restaurants;
-      loadingContainer.style.display = 'none';
+      loadingContainer.remove();
     } catch (error) {
       AlertInitiator.showAlert({
         title: 'Oops...',

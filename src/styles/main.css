@@ -218,7 +218,6 @@ app-bar {
  * Explore Menu
  */
 restaurant-list {
-  min-height: 80vh;
   padding: 50px 20px;
   display: grid;
   gap: 30px;
@@ -250,8 +249,11 @@ restaurant-list .empty-favorite {
 .card {
   background-color: var(--gray-50);
   color: var(--gray-900);
+  max-height: 330px;
+
   text-align: left;
   overflow: hidden;
+
   position: relative;
   border-radius: 8px;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -278,8 +280,9 @@ restaurant-list .empty-favorite {
   color: var(--gray-50);
 }
 
-.card .card-image {
+.card-image {
   height: 200px;
+  background-color: var(--gray-300);
 }
 
 .card-body {
@@ -287,18 +290,17 @@ restaurant-list .empty-favorite {
 }
 
 .card-title {
-  padding: 5px 0;
-}
-
-.card-title a {
   color: var(--gray-900);
-  font-size: 20px;
   padding: 10px 0;
+
+  font-size: 20px;
+  font-weight: bold;
   font-family: var(--font-second);
 }
 
 .card-desc p {
   color: var(--gray-700);
+  margin-top: 8px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

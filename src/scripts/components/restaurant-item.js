@@ -22,11 +22,7 @@ class RestaurantItem extends HTMLElement {
           <span class="material-icons">star</span>
           <p tabindex="0">${this._restaurant.rating}</p>
         </div>
-        <div class="card-title">
-          <h3 tabindex="0">
-            <a href="${`/#/detail/${this._restaurant.id}`}">${this._restaurant.name}</a>
-          </h3>
-        </div>
+        <a href="${`/#/detail/${this._restaurant.id}`}" class="card-title">${this._restaurant.name}</a>
         <div class="card-desc">
           <p>${this._restaurant.description}</p>
         </div>

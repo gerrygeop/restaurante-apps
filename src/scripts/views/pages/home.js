@@ -26,7 +26,7 @@ const Home = {
     try {
       const restaurants = await RestaurantSource.listRestaurants();
       restaurantsContainer.restaurants = restaurants;
-      loadingContainer.style.display = 'none';
+      loadingContainer.remove();
     } catch (error) {
       AlertInitiator.showAlert({
         title: 'Oops...',

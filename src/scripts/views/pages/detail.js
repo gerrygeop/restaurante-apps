@@ -37,7 +37,7 @@ const Detail = {
         },
       });
 
-      loadingContainer.style.display = 'none';
+      loadingContainer.remove();
     } catch (error) {
       AlertInitiator.showAlert({
         title: `Oopss...`,
