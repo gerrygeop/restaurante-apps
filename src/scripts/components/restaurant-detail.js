@@ -62,9 +62,9 @@ class RestaurantDetail extends HTMLElement {
         <div class="restaurant__customer__review" id="customerReviews">
           <h3 tabindex="0">Reviews</h3>
           <form>
-            <input type="text" id="customerName" placeholder="Nama" required>
-            <textarea rows="3" id="customerReview" placeholder="Berikan review anda" required></textarea>
-            <button type="submit">Send</button>
+            <input type="text" name="name" id="customerName" placeholder="Nama" required>
+            <textarea rows="3" name="review" id="customerReview" placeholder="Berikan review anda" required></textarea>
+            <button type="submit" id="btnSubmit">Send</button>
           </form>
           ${this._restaurant.customerReviews.map((customer) => `
             <div class="restaurant__review__box">
