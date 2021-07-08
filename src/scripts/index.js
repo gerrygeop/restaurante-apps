@@ -2,7 +2,7 @@ import 'regenerator-runtime'; /* for async await transpile */
 import 'lazysizes';
 import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 
-import '../styles/main.css';
+import '../styles/main.min.css';
 import './components/app-bar';
 import './components/loading-spinner';
 import './components/restaurant-list';
