@@ -12,11 +12,7 @@ class RestaurantItem extends HTMLElement {
         <span class="material-icons">place</span>
         <p tabindex="0">${this._restaurant.city}</p>
       </div>
-      <picture>
-        <source media="(min-width: 800px)" srcset="${CONFIG.BASE_IMAGE_URL_LARGE + this._restaurant.pictureId}">
-        <source media="(min-width: 600px)" srcset="${CONFIG.BASE_IMAGE_URL_MEDIUM + this._restaurant.pictureId}">
-        <img data-src="${CONFIG.BASE_IMAGE_URL_SMALL + this._restaurant.pictureId}" alt="${this._restaurant.name}" crossorigin="anonymous" class="card-image lazyload">
-      </picture>
+      <img data-src="${CONFIG.BASE_IMAGE_URL_SMALL + this._restaurant.pictureId}" alt="${this._restaurant.name}" crossorigin="anonymous" class="card-image lazyload">
       <div class="card-body">
         <div class="rating">
           <span class="material-icons">star</span>
