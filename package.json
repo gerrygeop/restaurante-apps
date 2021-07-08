@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
     "e2e": "codeceptjs run --steps",
-    "build-image": "node sharp.js"
+    "build-image": "node sharp.js",
+    "terbang": "node server.js"
   },
   "keywords": [],
   "author": "gerry <gerryja28@gmail.com>",
@@ -46,6 +47,7 @@
     "whatwg-fetch": "^3.2.0"
   },
   "dependencies": {
+    "express": "^4.17.1",
     "idb": "^6.1.2",
     "lazysizes": "^5.3.2",
     "regenerator-runtime": "^0.13.5",
