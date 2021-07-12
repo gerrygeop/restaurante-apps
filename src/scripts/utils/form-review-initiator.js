@@ -26,11 +26,13 @@ const FormReviewInitiator = {
     try {
       const response = await RestaurantSource.postReview(data);
       console.log(response);
+
       AlertInitiator.showAlert({
         title: 'Success',
         message: 'Thank you for your review',
         icon: 'success',
       });
+      window.location.reload();
     } catch (error) {
       AlertInitiator.showAlert({
         title: `Oopss...`,

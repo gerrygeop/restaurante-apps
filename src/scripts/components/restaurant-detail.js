@@ -80,7 +80,8 @@ class RestaurantDetail extends HTMLElement {
 
   _formCustomerReview() {
     const formReview = document.querySelector('form');
-    formReview.addEventListener('submit', () => {
+    formReview.addEventListener('submit', (event) => {
+      event.preventDefault();
       FormReviewInitiator.init({
         data: {
           id: this._restaurant.id,
