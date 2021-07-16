@@ -18,7 +18,7 @@ const Favorite = {
 
     try {
       const restaurants = await FavoriteRestaurantIdb.getAllRestaurant();
-      if (restaurants.length === 0) {
+      if (!restaurants.length) {
         restaurantsContainer.insertAdjacentHTML('beforeend', createBlankFavoriteTemplate());
       }
       restaurantsContainer.restaurants = restaurants;

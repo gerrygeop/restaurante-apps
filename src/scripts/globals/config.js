@@ -8,6 +8,9 @@ const CONFIG = {
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurant',
   CACHE_NAME: new Date().toISOString(),
+
+  /* Ketika memasuki production Ubah nama cache menjadi fixed string  */
+  // CACHE_NAME: 'restaurante-v3',
 };
 
 export default CONFIG;
